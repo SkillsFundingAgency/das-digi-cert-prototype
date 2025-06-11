@@ -1,7 +1,7 @@
 ---
 applications:
-- name: das-employer-prototype
-  command: das-employer-prototype
+- name: das-digi-cert-prototype
+  command: das-digi-cert-prototype
   memory: 512M
   buildpacks:
   - nodejs_buildpack

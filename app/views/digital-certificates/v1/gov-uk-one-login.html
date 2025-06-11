@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Create your GOV.UK One Login or sign in
+      </h1>
+
+      <p>
+        You can use your GOV.UK One Login to access some government services.
+      </p>
+      <p>
+        In the future, you’ll be able to use it to access all services on GOV.UK. You’ll need:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>an email address</li>
+        <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+      </ul>
+
+      <button type="submit" class="govuk-button govuk-button-stacked" data-module="govuk-button">
+        Create your GOV.UK One Login
+      </button>
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Sign-in
+      </button>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Services you can use with GOV.UK One Login (opens in new tab)</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}
