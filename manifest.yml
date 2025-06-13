@@ -1,7 +1,0 @@
----
-applications:
-- name: das-digi-cert-prototype
-  command: das-digi-cert-prototype
-  memory: 512M
-  buildpacks:
-  - nodejs_buildpack

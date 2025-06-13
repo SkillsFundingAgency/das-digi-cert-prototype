@@ -5,7 +5,10 @@
 // Add extra styles here
 
 .govuk-button.govuk-button-stacked {
-    display: block;
     margin-bottom: 20px;
 }
 
+.template-gov-uk-one-login-header .govuk-header__container {
+    border-bottom: unset;
+    margin-bottom: unset;
+}

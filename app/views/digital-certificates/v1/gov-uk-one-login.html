@@ -1,4 +1,5 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/gov-uk-one-login-header.html" %}
+{% set version = "v1" %}
 
 {% block pageTitle %}
   Content page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -18,10 +19,10 @@
         Create your GOV.UK One Login or sign in
       </h1>
 
-      <p>
+      <p class="govuk-body">
         You can use your GOV.UK One Login to access some government services.
       </p>
-      <p>
+      <p class="govuk-body">
         In the future, you’ll be able to use it to access all services on GOV.UK. You’ll need:
       </p>
 
@@ -30,13 +31,26 @@
         <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
       </ul>
 
-      <button type="submit" class="govuk-button govuk-button-stacked" data-module="govuk-button">
-        Create your GOV.UK One Login
-      </button>
+      <div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
 
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        Sign-in
-      </button>
+        {{ govukButton({
+          text: "Create your GOV.UK One Login",
+          classes: "govuk-button-stacked",
+          preventDoubleClick : true,
+          href: "#"
+        }) }}
+      </div>
+
+      <div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Sign-in",
+          classes: "govuk-button--secondary govuk-button-stacked",
+          href: "#"
+        }) }}
+      </div>
 
       <p class="govuk-body">
         <a href="#" class="govuk-link">Services you can use with GOV.UK One Login (opens in new tab)</a>
