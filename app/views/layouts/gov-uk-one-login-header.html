@@ -7,6 +7,13 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% set htmlClasses = "template-gov-uk-one-login-header" %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
 {% block header %}
   {{ govukHeader ({
     homepageUrl: "#"

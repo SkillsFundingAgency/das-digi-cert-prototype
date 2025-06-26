@@ -1,34 +1,9 @@
-{% extends "layouts/main.html" %}
+{% set hideBackButton = false %}
 {% set version = "v1" %}
+{% extends "layouts/digital-certificates.html" %}
 
 {% block pageTitle %}
-  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader() }}
-{% endblock %}
-
-{% block beforeContent %}
-
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Home",
-        href: "#"
-      },
-      {
-        text: "Education and learning",
-        href: "#"
-      },
-      {
-        text: "Apprenticeships, 14 to 19 education and training for work",
-        href: "#"
-      }
-    ]
-  }) }}
-
+  We need more information to match results | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -37,44 +12,18 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ serviceName }}
+        We need more information to match results
       </h1>
 
-      <p class="govuk-body">You can use this service to:</p>
+      <p class="govuk-body">We need you to answer some questions so that we can match your information to your apprenticeship results.</p>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>view your apprenticeship results and certificates</li>
-        <li>download and share your apprenticeship certificates</li>
-        <li>request a printed apprenticeship certificate</li>
-      </ul>
-      
-      <div class="govuk-inset-text">
-        <p class="govuk-body">This service is for apprenticeships awarded in England.</p>
-
-        <p class="govuk-body">
-          For other UK apprenticeships visit,
-          <a href="#" title="Apprenticeships Northern Ireland">Apprenticeships Northern Ireland</a>,
-          <a href="#" title="Apprenticeships Scotland">Apprenticeships Scotland</a>, or
-          <a href="#" title="Apprenticeships Wales">Apprenticeships Wales</a>.
-        </p>
-      </div>
-
-      <p class="govuk-body">
-        The first time you use this service you’ll need to answer some questions, so we can match your information to your results. We can match your results quicker if you know your unique learner number. After matching, you’ll be able to view your certificates straight away when signed in.
-      </p>
-
-      <p class="govuk-body">
-        You’ll need a GOV.UK One Login to use this service. You’ll be able to create a GOV.UK One Login if you do not already have one.
-      </p>
-
-      <p class="govuk-body">
-        You’ll be told when you sign in if you need to prove your identity. This is to keep your details safe and normally involves using photo ID like a passport or driving licence.
-      </p>
+      <p class="govuk-body">We can match your results quicker if you know your unique learner number.</p>
+      <p class="govuk-body">Your unique learner number (ULN) is a 10 digit number. Your training provider can give you your ULN reference, or it may be printed on your certificates or results slips.</p>
 
       {{ govukButton({
-        text: "Start now",
-        href: version ~ '/gov-uk-one-login',
-        isStartButton: true
+        text: "Continue",
+        href: version ~ 'DefineThisLater',
+        isStartButton: false
       }) }}
 
     </div>

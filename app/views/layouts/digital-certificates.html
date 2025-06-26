@@ -7,8 +7,38 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% set htmlClasses = "digital-certificates" %}
 
-<!-- {% block header %}
-  {{ govukHeader ({
-    homepageUrl: "#"
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Help"
+      },
+      {
+        href: "#",
+        html: 'Settings <span aria-hidden="true">▼</span>' | safe
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
   }) }}
-{% endblock %} -->
+  {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Your apprenticeship certificates",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% if not hideBackButton %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endif %}
+
+{% endblock %}

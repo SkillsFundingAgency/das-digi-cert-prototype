@@ -12,3 +12,17 @@
     border-bottom: unset;
     margin-bottom: unset;
 }
+
+ .govuk-template--rebranded .govuk-header__navigation {
+    padding: 16px 0 12px;
+}
+
+.govuk-header__navigation-list {
+    float: right;
+}
+
+.govuk-template--rebranded .govuk-header__navigation-item:not(:last-child)::after {
+    content: "|";
+    margin-left: 20px;
+    margin-right: 10px;
+}

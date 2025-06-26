@@ -2,14 +2,7 @@
 {% set version = "v1" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+  Create your GOV.UK One Login or sign in | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -38,7 +31,7 @@
           text: "Create your GOV.UK One Login",
           classes: "govuk-button-stacked",
           preventDoubleClick : true,
-          href: "#"
+          href: "check-youve-proved-your-identity"
         }) }}
       </div>
 
@@ -48,12 +41,12 @@
         {{ govukButton({
           text: "Sign-in",
           classes: "govuk-button--secondary govuk-button-stacked",
-          href: "#"
+          href: "check-youve-proved-your-identity"
         }) }}
       </div>
 
       <p class="govuk-body">
-        <a href="#" class="govuk-link">Services you can use with GOV.UK One Login (opens in new tab)</a>
+        <a href="https://www.gov.uk/using-your-gov-uk-one-login/services" class="govuk-link" target="_blank" >Services you can use with GOV.UK One Login (opens in new tab)</a>
       </p>
     </div>
   </div>

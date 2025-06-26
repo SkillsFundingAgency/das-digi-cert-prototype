@@ -2,15 +2,10 @@
 {% set version = "v1" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Check you’ve proved your identity | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+s
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -42,7 +37,7 @@
             Users without photo ID can instead use their UK bank account details and HMRC tax record to prove their identity.
       </p>
         <p class="govuk-body">
-            You can learn more about how users can prove their identity.
+            You can learn more about <a href="https://www.sign-in.service.gov.uk/about/checking-users-identities/evidence-types" title="how users can prove their identity" target="_blank">how users can prove their identity (opens in new tab)</a>.
       </p>
 
       <div>
@@ -51,13 +46,10 @@
         {{ govukButton({
           text: "Continue",
           preventDoubleClick : true,
-          href: "authorisatin/we-need-more-information"
+          href: "authorisation/we-need-more-information"
         }) }}
       </div>
 
-      <p class="govuk-body">
-        <a href="#" class="govuk-link">Services you can use with GOV.UK One Login (opens in new tab)</a>
-      </p>
     </div>
   </div>
 {% endblock %}
