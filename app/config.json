@@ -1,5 +1,5 @@
 {
-  "serviceName": "Your apprenticeship certificates",
+  "serviceName": "Apprenticeship certificates",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true

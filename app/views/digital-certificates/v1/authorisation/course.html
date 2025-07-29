@@ -1,0 +1,113 @@
+{% set hideBackButton = false %}
+{% set version = "v1" %}
+{% extends "layouts/digital-certificates.html" %}
+
+{% block pageTitle %}
+  Select your course | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Matching your information</span>
+
+
+
+      <p>{{ data['authKnowULN'] }}</p>
+      <p>{{ data['authULN'] }}</p>
+
+      <form method="post" action="year-of-completion">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukRadios({
+          name: "authCourse",
+          value: data['authCourse'] if data['authCourse'] else '',
+          fieldset: {
+            legend: {
+              text: "Select your course",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select the apprenticeship course that you’ve most recently completed."
+          },
+          items: [
+            {
+              value: "BSE Electrotechnical (Level 4)",
+              text: "BSE Electrotechnical (Level 4)"
+            },
+            {
+              value: "Dairy Technologist (Level 5)",
+              text: "Dairy Technologist (Level 5)"
+            },
+            {
+              value: "Geoscientist (Level 6)",
+              text: "Geoscientist (Level 6)"
+            },
+            {
+              value: "Geotechnical engineer (Level 7)",
+              text: "Geotechnical engineer (Level 7)"
+            },
+            {
+              value: "Space engineering technician (Level 4)",
+              text: "Space engineering technician (Level 4)"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "I don’t know",
+              text: "I don’t know"
+            }
+          ]
+        }) }}
+
+        <!-- Radio Component END -->
+
+        {{ govukButton({
+          text: "Continue",
+          type: "submit",
+          isStartButton: false
+        }) }}
+      </form>
+
+    </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

@@ -3,7 +3,7 @@
 {% extends "layouts/digital-certificates.html" %}
 
 {% block pageTitle %}
-  We need more information to match results | {{ serviceName }} | GOV.UK Prototype Kit
+  Select the address that you’d like us to  send your certificate to | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -11,20 +11,32 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        We need more information to match results
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">BSE Electrotechnical</span>
+        Select the address that you’d like us to  send your certificate to
       </h1>
 
-      <p class="govuk-body">We need you to answer some questions so that we can match your information to your apprenticeship results.</p>
+    {% from "govuk/components/input/macro.njk" import govukInput %}
 
-      <p class="govuk-body">We can match your results quicker if you know your unique learner number.</p>
-      <p class="govuk-body">Your unique learner number (ULN) is a 10 digit number. Your training provider can give you your ULN reference, or it may be printed on your certificates or results slips.</p>
+    {{ govukInput({
+      hint: {
+        text: "Start typing an address or postcode"
+      },
+      id: "print-address",
+      name: "printAddress"
+    }) }}
 
-      {{ govukButton({
-        text: "Continue",
-        href: 'unique-learner-number',
-        isStartButton: false
-      }) }}
+    <p><a href="request-printed-certificate/enter-address-manually">Enter address manually</a></p>
+
+    <div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-button--primary",
+          href: "request-printed-certificate/check-your-answers"
+        }) }}
+      </div>
 
     </div>
 

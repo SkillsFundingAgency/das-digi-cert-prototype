@@ -1,0 +1,123 @@
+{% set hideBackButton = true %}
+{% set version = "v1" %}
+{% extends "layouts/digital-certificates.html" %}
+
+{% block pageTitle %}
+  Your apprenticeship courses | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <!--- Notification Banner START -->
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+          {% set html %}
+            <h3 class="govuk-notification-banner__heading">
+              Training outcome recorded and trainee withdrawn
+            </h3>
+            <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>
+          {% endset %}
+
+          {{ govukNotificationBanner({
+            text: 'We’ve matched your information to these courses.',
+            type: "success"
+          }) }}
+      <!--- Notification Banner END -->
+
+      <h1 class="govuk-heading-xl">
+        Your apprenticeship courses
+      </h1>
+
+      <p class="govuk-body">
+        Select a course to view your result and certificate.
+      </p>
+
+      {{ govukTable({
+        caption: "Your apprenticeship courses",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Course name"
+          },
+          {
+            text: "Level"
+          },
+          {
+            text: "Date awarded"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<a href="bse-electrotechnical">BSE Electrotechnical</a>'
+            },
+            {
+              text: "4"
+            },
+            {
+              text: "6 January 2025"
+            }
+          ],
+          [
+            {
+              html: '<a href="#">BSE Engineering</a>'
+            },
+            {
+              text: "2"
+            },
+            {
+              text: "10 December 2021"
+            }
+          ]
+        ]
+      }) }}
+
+      <p class="govuk-body">
+          If any of these details are incorrect, <a href="contact-us" title="Contact us">contact us</a>.
+      </p>
+
+      <p class="govuk-body">
+        If you’re waiting for the result of your end-point assessment, contact your training provider.
+      </p>
+
+      </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

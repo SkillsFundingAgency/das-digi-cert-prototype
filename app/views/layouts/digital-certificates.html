@@ -27,17 +27,33 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   }) }}
   {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
-{{ govukServiceNavigation({
-  serviceName: "Your apprenticeship certificates",
-  serviceUrl: "#"
-}) }}
+<section aria-label="Service information" class="govuk-service-navigation"
+  data-module="govuk-service-navigation">
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <div class="govuk-service-navigation__service-name-container">
+        <span class="govuk-service-navigation__service-name">
+          <a href="#" class="govuk-service-navigation__link">
+                {{ serviceName }}
+          </a>
+        </span>
+      </div>
+    <div class="govuk-service-navigation__user-name-container">
+      <span class="govuk-service-navigation__user-name">
+          Jane Denver
+      </span>
+    </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
 
 {% block beforeContent %}
 {% if not hideBackButton %}
   {{ govukBackLink({
     text: "Back",
-    href: "javascript:window.history.back()"
+    href: customBackHref or "javascript:window.history.back()"
   }) }}
 {% endif %}
 

@@ -1,0 +1,135 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+// Add extra styles here
+
+div.extra-margin-bottom {
+    margin-bottom: 1rem;
+}
+
+//**** Adding user name to service navigation START ****//
+.govuk-service-navigation__container {
+    flex-direction: row;
+
+    .govuk-service-navigation__service-name-container {
+        margin-right: auto;
+        max-width: 50%;
+
+        .govuk-service-navigation__service-name {
+            display: inline-block;
+        }
+    }
+ 
+    .govuk-service-navigation__user-name-container {
+        margin-left: auto;
+        max-width: 50%;
+
+        .govuk-service-navigation__user-name{
+            font-family: "GDS Transport", arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 500;
+            display: inline-block;          
+        }
+    }
+}
+
+.govuk-service-navigation__user-name {
+  position: relative;
+  margin: 10px 0;
+  border: 0 solid rgb(26.1, 100.8, 165.6);
+}
+
+@media print {
+  .govuk-service-navigation__service-name, .govuk-service-navigation__user-name {
+    font-family: sans-serif;
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .govuk-service-navigation__user-name {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px 0;
+  }
+  .govuk-template--rebranded .govuk-service-navigation__user-name {
+    padding: 15px 0;
+    line-height: 1.5263157895;
+  }
+  .govuk-service-navigation__user-name:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .govuk-service-navigation__user-name:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  .govuk-service-navigation__service-name, .govuk-service-navigation__user-name {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+
+}
+//**** Adding user name to service navigation END ****//
+
+.govuk-button.govuk-button-stacked {
+    margin-bottom: 20px;
+}
+
+.template-gov-uk-one-login-header .govuk-header__container {
+    border-bottom: unset;
+    margin-bottom: unset;
+}
+
+ .govuk-template--rebranded .govuk-header__navigation {
+    padding: 16px 0 12px;
+}
+
+.govuk-header__navigation-list {
+    float: right;
+}
+
+.govuk-template--rebranded .govuk-header__navigation-item:not(:last-child)::after {
+    content: "|";
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.digital-certificates .course-details .govuk-panel.govuk-panel--confirmation {
+    margin-bottom: 1em;
+}
+
+.digital-certificates .course-details .govuk-panel__body {
+    line-height: 3rem;
+}
+
+.digital-certificates .course-details .govuk-table__header {
+    width: calc(100% / 3);
+}
+
+.digital-certificates .qr-code {
+  max-width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/** Desktop only media queries START **/
+@media screen and (min-width: 641px) {
+    
+  .digital-certificates .course-details .govuk-panel__body {
+  line-height: 4rem;
+  }
+
+  .digital-certificates .course-details .cell-width-50-percent td.govuk-table__cell {
+      width: 50%;
+  }
+
+  .digital-certificates .qr-code {
+    width: 232px;
+    height: 232px;
+}
+}
+
+/** Desktop only media queres END **/

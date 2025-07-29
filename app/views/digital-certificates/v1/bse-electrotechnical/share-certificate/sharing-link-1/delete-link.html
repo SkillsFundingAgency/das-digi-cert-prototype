@@ -3,7 +3,7 @@
 {% extends "layouts/digital-certificates.html" %}
 
 {% block pageTitle %}
-  We need more information to match results | {{ serviceName }} | GOV.UK Prototype Kit
+  Delete sharing link | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -11,22 +11,40 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        We need more information to match results
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">BSE Electrotechnical, Sharing link 1</span>
+        Delete link
       </h1>
 
-      <p class="govuk-body">We need you to answer some questions so that we can match your information to your apprenticeship results.</p>
+      <p class="govuk-body">
+        If you delete a link, it will stop working for everyone.
+      </p>
 
-      <p class="govuk-body">We can match your results quicker if you know your unique learner number.</p>
-      <p class="govuk-body">Your unique learner number (ULN) is a 10 digit number. Your training provider can give you your ULN reference, or it may be printed on your certificates or results slips.</p>
+      <p class="govuk-body">
+        To share your certificate with someone new, you can create a new sharing link.
+      </p>
 
-      {{ govukButton({
-        text: "Continue",
-        href: 'unique-learner-number',
-        isStartButton: false
-      }) }}
+      <p class="govuk-body">
+        Sharing links will automatically be deleted after 28 days.
+      </p>
 
-    </div>
+      <h2 class="govuk-heading-m">Are you sure you want to delete Sharing link 1?</h2>
+
+      <p class="govuk-hint">
+        This action cannot be undone
+      </p>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Delete link",
+          classes: "govuk-button--warning",
+          href: "../../share-certificate?deleted_sharing_link_name=Sharing link 1"
+        }) }}
+
+        <a class="govuk-link" href="../sharing-link-1">Cancel</a>
+      </div>
+    </div>      
+  </div>
 
     <!--
     <div class="govuk-grid-column-one-third">

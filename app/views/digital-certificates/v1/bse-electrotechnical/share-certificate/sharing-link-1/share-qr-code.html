@@ -3,7 +3,7 @@
 {% extends "layouts/digital-certificates.html" %}
 
 {% block pageTitle %}
-  We need more information to match results | {{ serviceName }} | GOV.UK Prototype Kit
+  Share QR code | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -11,22 +11,27 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        We need more information to match results
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">BSE Electrotechnical, Sharing link 1</span>
+        Share QR code
       </h1>
 
-      <p class="govuk-body">We need you to answer some questions so that we can match your information to your apprenticeship results.</p>
+      <p>
+        You can share this QR code to allow employers, colleges or universities to verify your apprenticeship.
+      </p>
 
-      <p class="govuk-body">We can match your results quicker if you know your unique learner number.</p>
-      <p class="govuk-body">Your unique learner number (ULN) is a 10 digit number. Your training provider can give you your ULN reference, or it may be printed on your certificates or results slips.</p>
+      <img src="/public/images/qr-code-gov-uk.png" title="QR code for Sharing link 1" class="qr-code"/>
 
-      {{ govukButton({
-        text: "Continue",
-        href: 'unique-learner-number',
-        isStartButton: false
-      }) }}
+      <p class="govuk-body">
+        Sharing links will automatically be deleted after 28 days.
+      </p>
 
-    </div>
+      
+      <p class="govuk-body">
+        <a class="govuk-link" href="../sharing-link-1">Return to Sharing link 1</a>
+      </p>
+    </div>      
+  </div>
 
     <!--
     <div class="govuk-grid-column-one-third">

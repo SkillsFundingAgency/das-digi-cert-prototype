@@ -1,9 +1,9 @@
-{% set hideBackButton = false %}
+{% set hideBackButton = true %}
 {% set version = "v1" %}
 {% extends "layouts/digital-certificates.html" %}
 
 {% block pageTitle %}
-  We need more information to match results | {{ serviceName }} | GOV.UK Prototype Kit
+  Email sent | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -11,22 +11,36 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        We need more information to match results
-      </h1>
+      <div style="margin-bottom: 2rem;">
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
-      <p class="govuk-body">We need you to answer some questions so that we can match your information to your apprenticeship results.</p>
-
-      <p class="govuk-body">We can match your results quicker if you know your unique learner number.</p>
-      <p class="govuk-body">Your unique learner number (ULN) is a 10 digit number. Your training provider can give you your ULN reference, or it may be printed on your certificates or results slips.</p>
-
-      {{ govukButton({
-        text: "Continue",
-        href: 'unique-learner-number',
-        isStartButton: false
+      {{ govukPanel({
+        titleText: "Email sent"
       }) }}
+      </div>
 
-    </div>
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        Your certificate has been shared with fuschia@deltascape.com.
+      </p>
+
+      <p class="govuk-body">
+        They will receive an email with a secure sharing link to your certificate. This link will automatically stop working at 9:07am on 28 March 2025.
+      </p>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="../sharing-link-1">Return to Sharing link 1</a>
+      </p>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="../../../your-apprenticeship-courses.html">Return to your apprenticeship courses</a>
+      </p>
+      
+    </div>      
+  </div>
 
     <!--
     <div class="govuk-grid-column-one-third">

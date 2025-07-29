@@ -1,0 +1,109 @@
+{% set hideBackButton = false %}
+{% set version = "v1" %}
+{% extends "layouts/digital-certificates.html" %}
+
+{% block pageTitle %}
+  Who was your training provider? | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Matching your information</span>
+
+      <p>{{ data['authKnowULN'] }}</p>
+      <p>{{ data['authULN'] }}</p>
+      <p>{{ data['authCourse'] }}</p>
+      <p>{{ data['authYearCompletedKnown'] }}</p>
+      <p>{{ data['authYearCompleted'] }}</p>
+
+      <form method="post" action="employer">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukRadios({
+          name: "authTrainingProvider",
+          value: data['authTrainingProvider'] if data['authTrainingProvider'] else '',
+          fieldset: {
+            legend: {
+              text: "Who was your training provider?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Alphascape Education",
+              text: "Alphascape Education"
+            },
+            {
+              value: "Deltascape Training and Development",
+              text: "Deltascape Training and Development"
+            },
+            {
+              value: "Sigmascape Solutions",
+              text: "Sigmascape Solutions"
+            },
+            {
+              value: "Thavnair Technical Training",
+              text: "Thavnair Technical Training"
+            },
+            {
+              value: "Yorkshire Neurology Network",
+              text: "Yorkshire Neurology Network"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "I don’t know",
+              text: "I don’t know"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          type: "submit",
+          isStartButton: false
+        }) }}
+      </form>
+
+    </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

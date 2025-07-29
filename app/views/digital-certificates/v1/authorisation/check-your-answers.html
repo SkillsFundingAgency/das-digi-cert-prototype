@@ -1,0 +1,127 @@
+{% set hideBackButton = false %}
+{% set version = "v1" %}
+{% extends "layouts/digital-certificates.html" %}
+
+{% block pageTitle %}
+  Check your answers | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Unique learner number"
+            },
+            value: {
+              text: data['authULN']
+            },
+            actions: {
+              items: [
+                {
+                  href: "unique-learner-number",
+                  text: "Change",
+                  visuallyHiddenText: "Change your unique learner number"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Course"
+            },
+            value: {
+              text: data['authCourse']
+            },
+            actions: {
+              items: [
+                {
+                  href: "course",
+                  text: "Change",
+                  visuallyHiddenText: "Change your course"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Year of completion"
+            },
+            value: {
+              text: data['authYearCompleted']
+            },
+            actions: {
+              items: [
+                {
+                  href: "year-of-completion",
+                  text: "Change",
+                  visuallyHiddenText: "Change your year of completion"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Training provider"
+            },
+            value: {
+              text: data['authTrainingProvider']
+            },
+            actions: {
+              items: [
+                {
+                  href: "training-provider",
+                  text: "Change",
+                  visuallyHiddenText: "Change your training provider"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Employer"
+            },
+            value: {
+              text: "Solution Nine Electric"
+            },
+            actions: {
+              items: [
+                {
+                  href: "employer",
+                  text: "Change",
+                  visuallyHiddenText: "Change your employer"
+                }
+              ]
+            }
+          }
+
+        ]
+      }) }}
+
+      <form action="../your-apprenticeship-courses" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Submit"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

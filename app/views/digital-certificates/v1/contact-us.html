@@ -3,7 +3,7 @@
 {% extends "layouts/digital-certificates.html" %}
 
 {% block pageTitle %}
-  We need more information to match results | {{ serviceName }} | GOV.UK Prototype Kit
+  Contact us | {{ serviceName }} | GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -12,19 +12,33 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        We need more information to match results
+        Contact us
       </h1>
 
-      <p class="govuk-body">We need you to answer some questions so that we can match your information to your apprenticeship results.</p>
+      <p class="govuk-body">
+        You can contact the apprenticeship helpline to:
+      </p>
 
-      <p class="govuk-body">We can match your results quicker if you know your unique learner number.</p>
-      <p class="govuk-body">Your unique learner number (ULN) is a 10 digit number. Your training provider can give you your ULN reference, or it may be printed on your certificates or results slips.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>correct details on your certificate</li>
+        <li>request a printed certificate</li>
+      </ul>
+          
+      <p class="govuk-body">
+        Give the helpline your reference number:
+      </p>
 
-      {{ govukButton({
-        text: "Continue",
-        href: 'unique-learner-number',
-        isStartButton: false
-      }) }}
+      <p class="govuk-body">
+        <strong>0123456</strong>
+      </p>
+
+      <p class="govuk-body">
+      <strong>Apprenticeship helpline</strong><br/>
+      <a href="mailto:nationalhelpdesk@apprenticeships.gov.uk" title="nationalhelpdesk@apprenticeships.gov.uk">nationalhelpdesk@apprenticeships.gov.uk</a><br/>
+      Telephone: 0800 015 0400<br/>
+      Monday to Friday, 9am to 5pm<br/>
+      <a href="https://www.gov.uk/call-charges" title="Find out about call charges">Find out about call charges</a>   
+      </p>
 
     </div>
 
