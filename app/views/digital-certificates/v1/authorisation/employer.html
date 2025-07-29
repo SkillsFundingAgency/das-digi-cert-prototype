@@ -13,13 +13,6 @@
 
       <span class="govuk-caption-xl">Matching your information</span>
 
-      <p>{{ data['authKnowULN'] }}</p>
-      <p>{{ data['authULN'] }}</p>
-      <p>{{ data['authCourse'] }}</p>
-      <p>{{ data['authYearCompletedKnown'] }}</p>
-      <p>{{ data['authYearCompleted'] }}</p>
-      <p>{{ data['authTrainingProvider'] }}</p>
-
       <form method="post" action="check-your-answers">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
