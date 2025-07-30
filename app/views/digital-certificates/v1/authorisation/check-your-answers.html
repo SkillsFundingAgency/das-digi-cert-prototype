@@ -14,12 +14,27 @@
 {% endblock %}
 
 {% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
+
+      <!-- Pre-processing values for conditional data in the summary list START -->
+      {% if data.authKnowULN == 'yes' %}
+        {% set ulnDisplay = data.authULN %}
+      {% else %}
+        {% set ulnDisplay = 'Not known' %}
+      {% endif %}
+
+      {% if data.authYearCompletedKnown == 'yes' %}
+        {% set yearCompletedDisplay = data.authYearCompleted %}
+      {% else %}
+        {% set yearCompletedDisplay = 'Not known' %}
+      {% endif %}
+      <!-- Pre-processing values for conditional data in the summary list END -->
 
       {{ govukSummaryList({
         rows: [
@@ -28,7 +43,7 @@
               text: "Unique learner number"
             },
             value: {
-              text: data['authULN']
+              text: ulnDisplay
             },
             actions: {
               items: [
@@ -64,7 +79,7 @@
               text: "Year of completion"
             },
             value: {
-              text: data['authYearCompleted']
+              text: yearCompletedDisplay
             },
             actions: {
               items: [

@@ -1,0 +1,32 @@
+
+<!-- V1: This does one big check. If the user answered all of the upcoming questions already, they skip to CYA. If they haven't, they go to the next question as normal. -->
+
+{% if data['authCourse'] and data['authYearCompletedKnown'] and data['authTrainingProvider'] and data['authEmployer'] %}
+    <form method="post" action="check-your-answers">
+{% else %}
+    <form method="post" action="course">
+{% endif %}
+
+<!-- V1 END -->
+
+<!-- V2: This checks each upcoming question in order. If it's not been answered yet, the user goes to its question page. If it has been answered, it gets skipped. If all questions have been answered you skip ahead to the CYA page-->
+
+{% if data['authCourse'] == none %}
+  <form method="post" action="course">
+{% else %}
+  {% if data['authYearCompletedKnown'] == none %}
+    <form method="post" action="year-of-completion">
+  {% else %}
+    {% if data['authTrainingProvider'] == none %}
+      <form method="post" action="training-provider">
+    {% else %}
+      {% if data['authEmployer'] == none %}
+        <form method="post" action="employer">
+      {% else %}
+        <form method="post" action="check-your-answers">
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<!-- V2 END -->

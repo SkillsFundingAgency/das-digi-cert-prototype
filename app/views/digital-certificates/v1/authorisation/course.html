@@ -13,7 +13,12 @@
 
       <span class="govuk-caption-xl">Matching your information</span>
 
-      <form method="post" action="year-of-completion">
+      {% if data['authYearCompletedKnown'] and data['authTrainingProvider'] and data['authEmployer'] %}
+        <form method="post" action="check-your-answers">
+      {% else %}
+        <form method="post" action="year-of-completion">
+      {% endif %}
+
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
