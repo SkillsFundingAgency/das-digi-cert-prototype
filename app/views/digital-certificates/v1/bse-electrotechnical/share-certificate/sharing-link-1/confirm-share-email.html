@@ -20,16 +20,15 @@
         We’ll send an email with a secure link to your certificate details to:
       </p>
 
-      <p class="govuk-body">
-        fuschia@deltascape.com
-      </p>
+      {% if data.shareEmailAddress  %}
+        <p class="govuk-body">{{data.shareEmailAddress}}</p>
+      {% else %}
+        <p class="govuk-body">example@email.com</p>
+      {% endif %}
 
       <p class="govuk-body">
         Sharing links will automatically be deleted after 28 days.
       </p>
-
-      <!-- Test this at some point? -->
-      {{ data['emailAddress'] }}      </p>
 
       <div class="govuk-button-group">
         {{ govukButton({

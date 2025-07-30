@@ -24,7 +24,12 @@
       </h2>
 
       <p>
-        Your certificate has been shared with fuschia@deltascape.com.
+        Your certificate has been shared with 
+        {% if data.shareEmailAddress  %}
+          {{data.shareEmailAddress}}
+        {% else %}
+          example@email.com
+        {% endif %}
       </p>
 
       <p class="govuk-body">

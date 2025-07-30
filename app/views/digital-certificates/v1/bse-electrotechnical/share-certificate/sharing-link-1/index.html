@@ -71,6 +71,7 @@
 
       <!-- Share by email START -->
       <div class="extra-margin-bottom">
+      <form method="post" action="./sharing-link-1/confirm-share-email">
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
       {{ govukInput({
@@ -84,7 +85,7 @@
         classes: "govuk-!-width-two-thirds",
         id: "email-address",
         inputmode: "email",
-        name: "emailAddress"
+        name: "shareEmailAddress"
       }) }}
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -92,8 +93,10 @@
       {{ govukButton({
         text: "Send email",
         classes: "govuk-button--secondary",
-        href: "./sharing-link-1/confirm-share-email"
+        type: "submit"
       }) }}
+      </form>
+
       </div>
       <!-- Share by email END -->
 
