@@ -1,0 +1,56 @@
+{% set hideBackButton = false %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  Check your answers | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="dfe-heading-xl">
+        Check your answers
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "Jane Denver<br/>
+                123 Example Road<br/>
+                Test Town<br/>
+                Debugshire<br/>
+                AB1 2CD"
+              },
+            actions: {
+              items: [
+                {
+                  href: "../request-printed-certificate",
+                  text: "Change",
+                  visuallyHiddenText: "Change your unique learner number"
+                }
+              ]
+            }
+          }
+
+        ]
+      }) }}
+
+      <form action="../your-apprenticeship-courses" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Submit",
+          classes: "govuk-button--primary",
+          href: "certificate-request-submitted"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

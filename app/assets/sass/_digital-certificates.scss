@@ -4,8 +4,14 @@
 // 
 // Add extra styles here
 
+@import 'node_modules/dfe-frontend/packages/dfefrontend';
+
 div.extra-margin-bottom {
     margin-bottom: 1rem;
+}
+
+.govuk-frontend-supported .govuk-header__menu-button {
+  display: contents;
 }
 
 //**** Adding user name to service navigation START ****//
@@ -26,7 +32,7 @@ div.extra-margin-bottom {
         max-width: 50%;
 
         .govuk-service-navigation__user-name{
-            font-family: "GDS Transport", arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-weight: 500;
@@ -43,8 +49,12 @@ div.extra-margin-bottom {
 
 @media print {
   .govuk-service-navigation__service-name, .govuk-service-navigation__user-name {
-    font-family: sans-serif;
+    font-family: 'Inter', sans-serif;
   }
+}
+
+.govuk-template--rebranded .govuk-header__navigation {
+  padding: 10px 0 16px;
 }
 
 @media (min-width: 40.0625em) {
@@ -81,10 +91,6 @@ div.extra-margin-bottom {
 .template-gov-uk-one-login-header .govuk-header__container {
     border-bottom: unset;
     margin-bottom: unset;
-}
-
- .govuk-template--rebranded .govuk-header__navigation {
-    padding: 16px 0 12px;
 }
 
 .govuk-header__navigation-list {
@@ -130,6 +136,15 @@ div.extra-margin-bottom {
     width: 232px;
     height: 232px;
 }
+
+  .govuk-frontend-supported .govuk-header__menu-button {
+  display: initial;
+}
+
+ .govuk-template--rebranded .govuk-header__navigation {
+    padding: 10px 0 8px;
+}
+
 }
 
 /** Desktop only media queres END **/

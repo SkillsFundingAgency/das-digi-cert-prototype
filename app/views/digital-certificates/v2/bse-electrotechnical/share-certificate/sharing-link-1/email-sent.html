@@ -1,0 +1,83 @@
+{% set hideBackButton = true %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  Email sent | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div style="margin-bottom: 2rem;">
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "Email sent"
+      }) }}
+      </div>
+
+      <h2 class="dfe-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        Your certificate has been shared with 
+        {% if data.shareEmailAddress  %}
+          {{data.shareEmailAddress}}
+        {% else %}
+          example@email.com
+        {% endif %}
+      </p>
+
+      <p class="govuk-body">
+        They will receive an email with a secure sharing link to your certificate. This link will automatically stop working at 9:07am on 28 March 2025.
+      </p>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="../sharing-link-1">Return to Sharing link 1</a>
+      </p>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="../../../your-apprenticeship-courses.html">Return to your apprenticeship courses</a>
+      </p>
+      
+    </div>      
+  </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="dfe-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

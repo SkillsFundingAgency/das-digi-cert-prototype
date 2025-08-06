@@ -5,7 +5,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
-{% set htmlClasses = "digital-certificates" %}
+{% set htmlClasses = htmlClasses + " digital-certificates" %}
 
 {% block header %}
   {{ govukHeader({
@@ -47,6 +47,11 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   </div>
 </section>
 
+
+
+
+
+
 {% endblock %}
 
 {% block beforeContent %}
@@ -57,4 +62,9 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   }) }}
 {% endif %}
 
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="/assets/js/dfefrontend.min.js"></script>
 {% endblock %}

@@ -1,0 +1,180 @@
+{% set hideBackButton = false %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  Sharing link 1 | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="extra-margin-bottom">
+      <h1 class="dfe-heading-l">
+        <span class="govuk-caption-l">BSE Electrotechnical</span>
+        Sharing link 1
+      </h1>
+
+      <p class="govuk-body">
+        This sharing link will automatically be deleted at 9:07am on 28 March 2025.
+      </p>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Delete link",
+        classes: "govuk-button--secondary",
+        href: "./sharing-link-1/delete-link"
+      }) }}
+      </div>
+
+      <!-- Secure web link START -->
+      <div class="extra-margin-bottom">
+      <!-- The nunjucks component doesn't support the 'readonly' property, so this needs to be made with actual HTML -->
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="web-link">
+            Secure web link
+          </label>
+        </h2>
+        <input class="govuk-input" id="web-link" name="secureWebLink" type="text" readonly="true" value="https://www.example.apprenticeships.gov.uk/certificates/0EB7A56F8DFD" inputmode="none">
+        <noscript>
+          <p class="govuk-body">Copy the link above manually.</p>
+        </noscript>
+      </div>
+
+      <button type="button" class="govuk-button govuk-button--secondary js-copy-link-btn" id="copy-link-btn" data-module="govuk-button" style="display:none;">
+        Copy link
+      </button>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var copyBtn = document.getElementById('copy-link-btn');
+          var webLinkInput = document.getElementById('web-link');
+          copyBtn.style.display = 'inline-block';
+          copyBtn.addEventListener('click', function() {
+            webLinkInput.select();
+            webLinkInput.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(webLinkInput.value)
+              .then(function() {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(function() {
+                  copyBtn.textContent = 'Copy link';
+                }, 1500);
+              });
+          });
+        });
+      </script>
+      </div>
+      <!-- Secure web link END -->
+
+      <!-- Share by email START -->
+      <div class="extra-margin-bottom">
+      <form method="post" action="./sharing-link-1/confirm-share-email">
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        label: {
+          text: "Share by email",
+          classes: "govuk-label--m"
+        },
+        hint: {
+          text: "Enter an email address"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "email-address",
+        inputmode: "email",
+        name: "shareEmailAddress"
+      }) }}
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Send email",
+        classes: "govuk-button--secondary",
+        type: "submit"
+      }) }}
+      </form>
+
+      </div>
+      <!-- Share by email END -->
+
+      <!-- Hiding the QR sectin for now. This feature has been moved to MVS+.
+      <div class="extra-margin-bottom">
+      <h2 class="dfe-heading-m">
+        QR code
+      </h2>
+
+      <p class="govuk-body">
+        You can share your link with a scannable QR code.
+      </p>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "View QR code",
+        classes: "govuk-button--secondary",
+        href: "./sharing-link-1/share-qr-code"
+      }) }}
+      </div>
+      -->
+
+      <!-- Link history START -->
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption">
+          <h2 class="govuk-table__caption--m">Link history</h2>
+          <p class="govuk-body">When your link has been viewed, you’ll see the time and date here.</p>
+        </caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Activity</th>
+            <th scope="col" class="govuk-table__header">Time and date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header">Link created</td>
+            <td class="govuk-table__cell">9:07am 28 February 2025</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <!-- Link history END -->
+    </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="dfe-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

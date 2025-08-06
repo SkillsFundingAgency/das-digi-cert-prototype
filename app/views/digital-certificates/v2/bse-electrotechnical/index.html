@@ -1,0 +1,269 @@
+{% set hideBackButton = false %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  BSE Electrotechnical | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% set bodyClasses = "course-details" %}
+{% set printedCertificateRequested = "False" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="dfe-heading-l">
+        BSE Electrotechnical
+      </h1>
+
+      <!-- Result Panel START -->
+      <!-- Using the HTML version of this since the Nunjucks component insists on adding an extra H1 -->
+      <div class="govuk-panel govuk-panel--confirmation">
+        <div class="govuk-panel__body">Your result is<br>
+          <span class="govuk-panel__title">
+            Pass
+          </span>
+        </div>
+      </div>
+      <!-- Result Panel END -->
+
+      <!-- Your details table START -->
+      {{ govukTable({
+        caption: "Your details",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: 'True',
+        rows: [
+          [
+            {
+              text: "First name"
+            },
+
+            {
+              text: "Jane"
+            }
+          ],
+          [
+            {
+              text: "Last name"
+            },
+            {
+              text: "Denver"
+            }
+          ],
+          [  
+          {
+              text: "Unique learner number"
+            },
+            {
+              text: "1234567890"
+            }
+          ],
+          [
+            {
+              text: "Certificate number"
+            },
+            {
+              text: "00002113"
+            }
+          ]
+        ]
+      }) }}
+      <!-- Your details table END -->
+
+      <!-- Apprenticeship details table START -->
+      {{ govukTable({
+        caption: "Apprenticeship details",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: 'True',
+        rows: [
+          [
+            {
+              text: "Course"
+            },
+
+            {
+              text: "BSE Electrotechnical"
+            }
+          ],
+          [
+            {
+              text: "Level"
+            },
+            {
+              text: "4"
+            }
+          ],
+          [  
+          {
+              text: "Option"
+            },
+            {
+              text: "Electrical Installation"
+            }
+          ],
+          [
+            {
+              text: "Training provider"
+            },
+            {
+              text: "Deltascape Training and Development"
+            }
+          ],
+          [
+            {
+              text: "End-point assessment organisation"
+            },
+            {
+              text: "Final Boss Testing Institute"
+            }
+          ],
+          [
+            {
+              text: "Employer"
+            },
+            {
+              text: "Solution Nine Electric"
+            }
+          ],
+          [
+            {
+              text: "Start date"
+            },
+            {
+              text: "10 January 2022"
+            }
+          ],
+          [
+            {
+              text: "Date awarded"
+            },
+            {
+              text: "6 January 2025"
+            }
+          ],
+          [
+            {
+              text: "Result"
+            },
+            {
+              text: "Pass"
+            }
+          ]
+        ]
+      }) }}
+      <!-- Apprenticeship details table END -->
+      
+      <p class="govuk-body">
+        If any of these details are incorrect, <a href="contact-us" title="Contact us">contact us</a>
+      </p>
+
+      <h2 class="dfe-heading-m">
+        Create a sharing link
+      </h2>
+
+      <p class="govuk-body">
+        You can create a secure link to share your apprenticeship certificate. This allows employers, colleges or universities to verify your apprenticeship.
+      </p>
+
+      <div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Create link",
+          classes: "govuk-button--secondary",
+          href: "bse-electrotechnical/share-certificate"
+        }) }}
+      </div>
+
+      <h2 class="dfe-heading-m">
+        Download your certificate
+      </h2>
+
+      <div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Download certificate (PDF)",
+          classes: "govuk-button--secondary",
+          href: "/public/pdfs/Standard Certificate - Design Mock-Up V2.pdf"
+        }) }}
+      </div>
+
+      {% if printedCertificateRequested == "True" %}
+        <div>
+          <!-- Print status table START -->
+          {% set certificateStatusHtml %}
+                      {{govukTag({
+              text: "Printed"
+            })}}
+          {% endset %}      
+
+          {{ govukTable({
+            caption: "Certificate print status",
+            captionClasses: "govuk-table__caption--m",
+            classes: "cell-width-50-percent",
+            rows: [
+              [
+                {
+                  text: "Your certificate status is"
+                },
+                {
+                  html: certificateStatusHtml
+                }
+              ]
+            ]
+          }) }}
+          <!-- Print status table END -->
+        </div>
+
+        {% else %}
+
+          <div>
+            <h2 class="dfe-heading-m">
+              Request a printed certificate
+            </h2>
+            <p class="govuk-body">
+              We can post a certificate to you. You need to <a href="bse-electrotechnical/request-printed-certificate" title="Request a printed certificate">request a printed certificate</a>. Certificates can take up to 3 weeks to arrive.
+            </p>
+          </div>
+
+      {% endif %}
+
+    </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="dfe-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

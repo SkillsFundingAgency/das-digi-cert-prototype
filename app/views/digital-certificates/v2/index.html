@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+{% set version = "v2" %}
+
+{% block pageTitle %}
+  {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Education and learning",
+        href: "#"
+      },
+      {
+        text: "Apprenticeships, 14 to 19 education and training for work",
+        href: "#"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="dfe-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p class="govuk-body">You can use this service to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>view your apprenticeship results and certificates</li>
+        <li>download and share your apprenticeship certificates</li>
+        <li>request a printed apprenticeship certificate</li>
+      </ul>
+      
+      <div class="govuk-inset-text">
+        <p class="govuk-body">This service is for apprenticeships awarded in England.</p>
+
+        <p class="govuk-body">
+          For other UK apprenticeships visit,
+          <a href="#" title="Apprenticeships Northern Ireland">Apprenticeships Northern Ireland</a>,
+          <a href="#" title="Apprenticeships Scotland">Apprenticeships Scotland</a>, or
+          <a href="#" title="Apprenticeships Wales">Apprenticeships Wales</a>.
+        </p>
+      </div>
+
+      <p class="govuk-body">
+        The first time you use this service you’ll need to answer some questions, so we can match your information to your results. We can match your results quicker if you know your unique learner number. After matching, you’ll be able to view your certificates straight away when signed in.
+      </p>
+
+      <p class="govuk-body">
+        You’ll need a GOV.UK One Login to use this service. You’ll be able to create a GOV.UK One Login if you do not already have one.
+      </p>
+
+      <p class="govuk-body">
+        You’ll be told when you sign in if you need to prove your identity. This is to keep your details safe and normally involves using photo ID like a passport or driving licence.
+      </p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: version ~ '/gov-uk-one-login',
+        isStartButton: true
+      }) }}
+
+    </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="dfe-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% set hideBackButton = false %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  Share QR code | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="dfe-heading-l">
+        <span class="govuk-caption-l">BSE Electrotechnical, Sharing link 1</span>
+        Share QR code
+      </h1>
+
+      <p>
+        You can share this QR code to allow employers, colleges or universities to verify your apprenticeship.
+      </p>
+
+      <img src="/public/images/qr-code-gov-uk.png" title="QR code for Sharing link 1" class="qr-code"/>
+
+      <p class="govuk-body">
+        Sharing links will automatically be deleted after 28 days.
+      </p>
+
+      
+      <p class="govuk-body">
+        <a class="govuk-link" href="../sharing-link-1">Return to Sharing link 1</a>
+      </p>
+    </div>      
+  </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="dfe-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

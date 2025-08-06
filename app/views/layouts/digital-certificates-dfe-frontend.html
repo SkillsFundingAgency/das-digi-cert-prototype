@@ -1,0 +1,82 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% set htmlClasses = "digital-certificates dfe-frontend" %}
+
+{% block header %}
+  <header class="govuk-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__logo">
+        <a href="#" class="govuk-header__link govuk-header__link--homepage">
+            <img src="/public/images/department-for-education_white.png" alt="Department for Education" class="govuk-header__logotype">
+        </a>
+      </div>
+      <div class="govuk-header__content">
+        <nav aria-label="Menu" class="govuk-header__navigation">
+          <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden="">
+            Menu
+          </button>
+          <ul id="navigation" class="govuk-header__navigation-list">          
+            <li class="govuk-header__navigation-item">            
+              <a class="govuk-header__link" href="#">            
+                Help            
+              </a>            
+            </li>    
+            <li class="govuk-header__navigation-item">  
+              <a class="govuk-header__link" href="#">            
+                Settings <span aria-hidden="true">▼</span>            
+              </a>            
+            </li>          
+            <li class="govuk-header__navigation-item">            
+              <a class="govuk-header__link" href="#">            
+                Sign out            
+              </a>            
+            </li>
+          </ul>
+        </nav>    
+      </div>
+  </div>
+  </header>
+  
+  {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+<section aria-label="Service information" class="govuk-service-navigation"
+  data-module="govuk-service-navigation">
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <div class="govuk-service-navigation__service-name-container">
+        <span class="govuk-service-navigation__service-name">
+          <a href="#" class="govuk-service-navigation__link">
+                {{ serviceName }}
+          </a>
+        </span>
+      </div>
+    <div class="govuk-service-navigation__user-name-container">
+      <span class="govuk-service-navigation__user-name">
+          Jane Denver
+      </span>
+    </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block beforeContent %}
+{% if not hideBackButton %}
+  {{ govukBackLink({
+    text: "Back",
+    href: customBackHref or "javascript:window.history.back()"
+  }) }}
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="/assets/js/dfefrontend.min.js"></script>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% set hideBackButton = true %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  Certificate request submitted | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "Certificate request submitted"        
+      }) }}
+      
+      
+      <h2 class="dfe-heading-m" style="margin-top: 30px;">
+        What happens next
+      </h2>
+      
+      <p class="govuk-body">
+        Your request is being processed. Certificates can take up to 3 weeks to arrive.
+      </p>
+        
+      <p class="govuk-body">
+        <a href="../../bse-electrotechnical" title ="Return to BSE Electrotechnical certificate page">Return to BSE Electrotechnical certificate page</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

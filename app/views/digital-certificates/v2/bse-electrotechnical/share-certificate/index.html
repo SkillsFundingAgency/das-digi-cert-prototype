@@ -1,0 +1,146 @@
+{% set hideBackButton = false %}
+{% set customBackHref = "../bse-electrotechnical" %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  Create a sharing link | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% set deletedSharingLinkName = (query.deleted_sharing_link_name and query.deleted_sharing_link_name | trim) or none %}
+{% set existingSharingLinks = false %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if deletedSharingLinkName and deletedSharingLinkName != '' %}
+        {{ govukNotificationBanner({
+          text: deletedSharingLinkName + " deleted",
+          type: "success"
+        }) }}
+      {% endif %}
+
+      <h1 class="dfe-heading-l">
+        <span class="govuk-caption-l">BSE Electrotechnical</span>
+        Create a sharing link
+      </h1>
+
+      <p class="govuk-body">
+        You can create secure links to share proof of your certificate.
+      </p>
+
+      <p class="govuk-body">A sharing link includes a secure web URL</p>
+      
+      <p class="govuk-body">You can:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>share the link by email</li>
+        <li>see when your link has been used</li>
+        <li>create multiple sharing links to share with different people</li>
+      </ul>
+
+      <p class="govuk-body">
+        Sharing links will automatically be deleted after 28 days.
+      </p>
+
+      <p class="govuk-body">
+        Find out how we collect and use data for this service in <a href="https://www.gov.uk/government/publications/privacy-information-members-of-the-public/privacy-information-members-of-the-public#using-your-data-when-you-make-an-enquiry" title="Our privacy notice" target="_blank">our privacy notice.</a>
+      </p>
+
+      <h2 class="dfe-heading-m">
+        Create a sharing link
+      </h2>
+
+      <p class="govuk-body">
+        You can create a secure link to share your apprenticeship certificate. This allows employers, colleges or universities to verify your apprenticeship.
+      </p>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Create new sharing link",
+        classes: "govuk-button--primary",
+        href: "./share-certificate/sharing-link-1"
+      }) }}
+
+      {% if existingSharingLinks == true %}
+        <!-- Sharing links table START -->
+        {{ govukTable({
+          caption: "Your sharing links",
+          captionClasses: "govuk-table__caption--m",
+          classes: "cell-width-50-percent",
+          firstCellIsHeader: true,
+          head: [
+              {
+                text: "Name"
+              },
+              {
+                text: "Expiry date"
+              },
+              {
+                text: "Action",
+                classes: "govuk-table__cell--numeric"
+              }
+            ],
+          rows: [
+            [
+              {
+                text: "Sharing link 1"
+              },
+              {
+                text: "28 March 2025"
+              },
+              {
+                html: '<a href="share-certificate/sharing-link-1/" class="govuk-link">View</a>',
+                classes: "govuk-table__cell--numeric"
+              }
+            ]
+          ]
+        }) }}
+        <!-- Sharing links table END -->
+
+        {% else %}
+
+          <p class="govuk-body">
+            You currently have no links to share. When you create a sharing link, it will appear on this page.
+          </p>
+
+      {% endif %}
+
+    </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="dfe-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

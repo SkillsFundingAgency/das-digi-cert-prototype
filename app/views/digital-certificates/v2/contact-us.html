@@ -1,0 +1,81 @@
+{% set hideBackButton = false %}
+{% set version = "v2" %}
+{% extends "layouts/digital-certificates-dfe-frontend.html" %}
+
+{% block pageTitle %}
+  Contact us | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="dfe-heading-xl">
+        Contact us
+      </h1>
+
+      <p class="govuk-body">
+        You can contact us to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>correct details on your certificate</li>
+        <li>request a printed certificate</li>
+      </ul>
+          
+      <p class="govuk-body">
+        Give us your reference number:
+      </p>
+
+      <p class="govuk-body">
+        <strong>0123456</strong>
+      </p>
+
+      <p class="govuk-body"><strong>Apprenticeship service</strong></p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>email <a href="mailto:helpdesk@manage-apprenticeships.service.gov.uk" title="helpdesk@manage-apprenticeships.service.gov.uk">helpdesk@manage-apprenticeships.service.gov.uk</a></li>
+        <li>call 0800 0150 600</li>
+        <ul>
+          <li>Monday to Friday, 9am to 6pm</li>
+          <li><a href="https://www.gov.uk/call-charges" title="Find out about call charges">Find out about call charges</a></li>
+        </ul>
+      </ul>
+      <p></p>
+
+    </div>
+
+    <!--
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="dfe-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+    -->
+
+  </div>
+
+{% endblock %}

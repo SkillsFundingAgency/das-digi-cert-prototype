@@ -1,0 +1,64 @@
+{% extends "layouts/gov-uk-one-login-header.html" %}
+{% set version = "v2" %}
+
+{% block pageTitle %}
+  Check you’ve proved your identity | {{ serviceName }} | GOV.UK Prototype Kit
+{% endblock %}
+
+s
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="dfe-heading-xl">
+        Check you’ve proved your identity
+      </h1>
+
+      <p class="govuk-body">
+        We need to check if you’ve proved your identity with GOV.UK One Login to give you access to your certificates and keep them safe. 
+      </p>
+      <p class="govuk-body">
+        If you’ve already proved your identity, you can check your details on the next page.
+      </p>
+      <p class="govuk-body">
+        To prove your identity GOV.UK will ask you some questions and you’ll need:
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>your passport</li>
+        <li>your driving licence</li>
+      </ul>
+      <p class="govuk-body">
+        or
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>an equivalent photo ID</li>
+      </ul>
+        <p class="govuk-body">
+            Users without photo ID can instead use their UK bank account details and HMRC tax record to prove their identity.
+      </p>
+        <p class="govuk-body">
+            You can learn more about <a href="https://www.sign-in.service.gov.uk/about/checking-users-identities/evidence-types" title="how users can prove their identity" target="_blank">how users can prove their identity (opens in new tab)</a>.
+      </p>
+
+      <div>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick : true,
+          href: "authorisation/we-need-more-information"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
